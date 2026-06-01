@@ -1,0 +1,7 @@
+streamlit
+numpy<2.0.0
+nltk
+tensorflow
+plotly
+pandas
+protobuf<4.25.0
