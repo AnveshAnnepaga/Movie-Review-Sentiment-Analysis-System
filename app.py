@@ -101,35 +101,27 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Animated Gradient Background for Hero */
-    @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    
+    /* 3D Header */
     .hero {
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-        background-size: 400% 400%;
-        animation: gradientBG 15s ease infinite;
+        background: linear-gradient(135deg, #1f1c2c, #928DAB);
         padding: 4rem 2rem;
-        border-radius: 24px;
+        border-radius: 30px;
         color: white;
         text-align: center;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        margin-bottom: 2.5rem;
+        margin-bottom: 3.5rem;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
+        /* Claymorphism 3D effect */
+        box-shadow: 
+            20px 20px 40px rgba(0, 0, 0, 0.4),
+            -5px -5px 15px rgba(255, 255, 255, 0.05),
+            inset 3px 3px 10px rgba(255, 255, 255, 0.2),
+            inset -5px -5px 15px rgba(0, 0, 0, 0.4);
+        transform: perspective(1200px) rotateX(2deg);
+        transition: transform 0.3s ease;
     }
-    
-    /* Subtle overlay pattern */
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: url('https://www.transparenttextures.com/patterns/cubes.png');
-        opacity: 0.15;
-        z-index: 0;
+    .hero:hover {
+        transform: perspective(1200px) rotateX(0deg);
     }
     
     .hero-content {
@@ -137,138 +129,131 @@ st.markdown("""
         z-index: 1;
     }
 
+    /* 3D Extruded Text */
     .hero h1 {
         font-size: 4.5rem;
         font-weight: 900;
         margin: 0;
-        text-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        letter-spacing: -2px;
         color: #ffffff;
+        text-shadow: 
+            0 1px 0 #cccccc,
+            0 2px 0 #c9c9c9,
+            0 3px 0 #bbb,
+            0 4px 0 #b9b9b9,
+            0 5px 0 #aaa,
+            0 6px 1px rgba(0,0,0,.1),
+            0 0 5px rgba(0,0,0,.1),
+            0 1px 3px rgba(0,0,0,.3),
+            0 3px 5px rgba(0,0,0,.2),
+            0 5px 10px rgba(0,0,0,.25),
+            0 10px 10px rgba(0,0,0,.2),
+            0 20px 20px rgba(0,0,0,.15);
+        letter-spacing: -2px;
     }
     
     .hero p {
         font-size: 1.4rem;
         font-weight: 500;
         opacity: 0.95;
-        margin-top: 15px;
-        text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top: 25px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
     
     .tech-pill {
         display: inline-block;
-        background: rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.1);
         backdrop-filter: blur(10px);
-        padding: 8px 20px;
+        padding: 8px 25px;
         border-radius: 50px;
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 700;
-        margin-top: 20px;
-        border: 1px solid rgba(255,255,255,0.3);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-top: 25px;
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 
+            5px 5px 15px rgba(0,0,0,0.2),
+            inset 1px 1px 2px rgba(255,255,255,0.3);
         text-transform: uppercase;
         letter-spacing: 2px;
     }
 
-    /* Floating Animation for Result Card */
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-    }
-
+    /* 3D Input Area */
     .stTextArea textarea {
         background-color: #1a1c24 !important;
-        border: 2px solid #2d313f !important;
-        border-radius: 16px !important;
+        border: none !important;
+        border-radius: 20px !important;
         padding: 20px !important;
         color: #fff !important;
         font-size: 1.15rem !important;
         line-height: 1.6 !important;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 
+            inset 5px 5px 15px rgba(0,0,0,0.5),
+            inset -5px -5px 15px rgba(255,255,255,0.02) !important;
+        transition: all 0.3s ease;
     }
     .stTextArea textarea:focus {
-        border-color: #23a6d5 !important;
-        box-shadow: 0 0 20px rgba(35, 166, 213, 0.3) !important;
-        transform: scale(1.01);
+        box-shadow: 
+            inset 5px 5px 15px rgba(0,0,0,0.6),
+            inset -5px -5px 15px rgba(255,255,255,0.05),
+            0 0 15px rgba(35, 166, 213, 0.4) !important;
     }
     
-    div.stButton > button:first-child {
-        background: linear-gradient(90deg, #ff0844 0%, #ffb199 100%);
-        color: #fff;
-        font-weight: 800;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        border-radius: 12px;
-        border: none;
-        padding: 0.8rem 2rem;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        text-transform: uppercase;
-        box-shadow: 0 10px 20px rgba(255, 8, 68, 0.3);
-    }
-    div.stButton > button:first-child:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 15px 30px rgba(255, 8, 68, 0.5);
-    }
-    
-    .result-card {
-        background: linear-gradient(145deg, #1e222d, #161820);
-        border: 1px solid rgba(255,255,255,0.05);
+    /* 3D Result Cards via Claymorphism */
+    .result-card, .model-stat-card {
+        background: #1e222d;
         border-radius: 24px;
-        padding: 3rem 2rem;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        padding: 2.5rem;
         text-align: center;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        animation: float 6s ease-in-out infinite;
+        box-shadow: 
+            15px 15px 30px rgba(0, 0, 0, 0.4),
+            -5px -5px 15px rgba(255, 255, 255, 0.03),
+            inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+            inset -3px -3px 5px rgba(0, 0, 0, 0.4);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+    
+    .model-stat-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 
+            20px 20px 40px rgba(0, 0, 0, 0.5),
+            -10px -10px 20px rgba(255, 255, 255, 0.05),
+            inset 2px 2px 5px rgba(255, 255, 255, 0.15),
+            inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+    }
+
     .sentiment-positive {
-        background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+        background: rgba(76, 175, 80, 0.1);
         color: #4caf50;
-        border: 1px solid rgba(76, 175, 80, 0.3);
-        padding: 1.8rem;
+        padding: 1.5rem;
         border-radius: 20px;
-        font-size: 3rem;
+        font-size: 2.8rem;
         font-weight: 900;
         text-align: center;
         margin: 1.5rem 0;
         text-transform: uppercase;
         letter-spacing: 3px;
-        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+        box-shadow: 
+            inset 3px 3px 10px rgba(0,0,0,0.2),
+            inset -3px -3px 10px rgba(76, 175, 80, 0.2);
     }
     .sentiment-negative {
-        background: linear-gradient(135deg, rgba(244, 67, 54, 0.15), rgba(244, 67, 54, 0.05));
+        background: rgba(244, 67, 54, 0.1);
         color: #f44336;
-        border: 1px solid rgba(244, 67, 54, 0.3);
-        padding: 1.8rem;
+        padding: 1.5rem;
         border-radius: 20px;
-        font-size: 3rem;
+        font-size: 2.8rem;
         font-weight: 900;
         text-align: center;
         margin: 1.5rem 0;
         text-transform: uppercase;
         letter-spacing: 3px;
-        box-shadow: 0 10px 30px rgba(244, 67, 54, 0.15);
+        box-shadow: 
+            inset 3px 3px 10px rgba(0,0,0,0.2),
+            inset -3px -3px 10px rgba(244, 67, 54, 0.2);
     }
     .conf-text {
         font-size: 1.3rem;
         color: #aaa;
         font-weight: 500;
-    }
-    .model-stat-card {
-        background: linear-gradient(145deg, #1e222d, #161820);
-        border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 20px;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .model-stat-card:hover {
-        transform: translateY(-10px);
-        border-color: rgba(35, 166, 213, 0.5);
-        box-shadow: 0 15px 40px rgba(35, 166, 213, 0.2);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -288,7 +273,7 @@ tokenizer = get_tokenizer()
 models = load_all_models()
 
 # Layout
-st.markdown("<h3 style='margin-bottom: 20px;'>🔍 Analyze Your Review</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='margin-bottom: 20px; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);'>🔍 Analyze Your Review</h3>", unsafe_allow_html=True)
 col_input, col_output = st.columns([1.2, 1], gap="large")
 
 with col_input:
@@ -302,7 +287,8 @@ with col_input:
     st.markdown("<br>", unsafe_allow_html=True)
     c1, c2, c3 = st.columns([1, 1, 1])
     with c3:
-        analyze_btn = st.button("✨ Analyze Sentiment", use_container_width=True)
+        # Changed back to standard Streamlit primary button as requested
+        analyze_btn = st.button("✨ Analyze Sentiment", type="primary", use_container_width=True)
 
 if analyze_btn and review_input.strip():
     if not models:
@@ -343,8 +329,8 @@ if analyze_btn and review_input.strip():
             </div>
             """, unsafe_allow_html=True)
             
-        st.markdown("<br><hr style='border-color: #2d313f; margin: 40px 0;'><br>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center; margin-bottom: 40px; font-weight: 800;'>📊 Comprehensive Model Comparison</h2>", unsafe_allow_html=True)
+        st.markdown("<br><hr style='border-color: #2d313f; margin: 40px 0; box-shadow: 0 1px 0 rgba(255,255,255,0.05);'><br>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center; margin-bottom: 40px; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);'>📊 Comprehensive Model Comparison</h2>", unsafe_allow_html=True)
         
         # 3-Grid Cards
         comp_cols = st.columns(3)
@@ -352,17 +338,17 @@ if analyze_btn and review_input.strip():
             is_pos = pred >= 0.5
             sent = "Positive" if is_pos else "Negative"
             conf = pred if is_pos else (1 - pred)
-            color = "#23d5ab" if is_pos else "#ff0844"
+            color = "#4caf50" if is_pos else "#f44336"
             
             with comp_cols[i]:
                 st.markdown(f"""
                 <div class="model-stat-card">
-                    <h3 style="margin:0; color: #fff; font-size: 1.6rem; font-weight: 800;">{name}</h3>
-                    <p style="color: {color}; font-weight: 900; font-size: 1.4rem; margin: 15px 0;">{sent}</p>
-                    <div style="width: 100%; background-color: #2d313f; border-radius: 10px; height: 12px; margin-top: 20px; overflow: hidden; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
-                        <div style="width: {conf*100}%; background-color: {color}; height: 100%; border-radius: 10px; transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"></div>
+                    <h3 style="margin:0; color: #fff; font-size: 1.6rem; font-weight: 900;">{name}</h3>
+                    <p style="color: {color}; font-weight: 900; font-size: 1.4rem; margin: 15px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">{sent}</p>
+                    <div style="width: 100%; background-color: #1a1c24; border-radius: 10px; height: 12px; margin-top: 20px; overflow: hidden; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(255,255,255,0.05);">
+                        <div style="width: {conf*100}%; background-color: {color}; height: 100%; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"></div>
                     </div>
-                    <p style="color: #aaa; font-size: 1.1rem; margin-top: 20px; margin-bottom: 0; font-weight: 600;">Accuracy Match: <span style="color:#fff;">{conf*100:.1f}%</span></p>
+                    <p style="color: #aaa; font-size: 1.1rem; margin-top: 20px; margin-bottom: 0; font-weight: 600;">Accuracy Match: <span style="color:#fff; font-weight: 800;">{conf*100:.1f}%</span></p>
                 </div>
                 """, unsafe_allow_html=True)
                 
@@ -377,7 +363,7 @@ if analyze_btn and review_input.strip():
                 labels=['Positive Probability', 'Negative Probability'], 
                 values=[selected_pred, 1 - selected_pred], 
                 hole=.7,
-                marker_colors=['#23d5ab', '#ff0844'],
+                marker_colors=['#4caf50', '#f44336'],
                 textinfo='label+percent',
                 textfont=dict(size=15, color='white', family="Inter"),
                 hoverinfo='label+percent'
@@ -389,7 +375,7 @@ if analyze_btn and review_input.strip():
                 margin=dict(l=20, r=20, t=60, b=20),
                 paper_bgcolor="rgba(0,0,0,0)",
                 plot_bgcolor="rgba(0,0,0,0)",
-                font=dict(color="#fff", family="Inter", size=14),
+                font=dict(color="#fff", family="Inter", size=14, weight="bold"),
                 showlegend=False
             )
             st.plotly_chart(fig_prob, use_container_width=True)
@@ -406,14 +392,14 @@ if analyze_btn and review_input.strip():
                 x='Model', 
                 y='Positive Probability', 
                 color='Sentiment',
-                color_discrete_map={'Positive': '#23d5ab', 'Negative': '#ff0844'},
+                color_discrete_map={'Positive': '#4caf50', 'Negative': '#f44336'},
                 text='Positive Probability',
                 range_y=[0, 100]
             )
             fig_comp.update_traces(
                 texttemplate='%{text:.1f}%', 
                 textposition='outside',
-                textfont=dict(size=14, family="Inter", color="white"),
+                textfont=dict(size=14, family="Inter", color="white", weight="bold"),
                 marker_line_color='rgba(0,0,0,0)',
                 marker_line_width=0,
                 width=0.45
@@ -422,7 +408,7 @@ if analyze_btn and review_input.strip():
                 height=380,
                 paper_bgcolor="rgba(0,0,0,0)",
                 plot_bgcolor="rgba(0,0,0,0)",
-                font=dict(color="#fff", family="Inter", size=14),
+                font=dict(color="#fff", family="Inter", size=14, weight="bold"),
                 title_text="Positive Probability Across All Models",
                 title_x=0.5,
                 xaxis_title="",
